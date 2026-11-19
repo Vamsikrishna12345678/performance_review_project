@@ -1,0 +1,305 @@
+/* --- Dashboard Specific Styles --- */
+
+/* Welcome Banner */
+.welcome-banner {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(30, 64, 175, 0.04) 100%);
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.welcome-text h1 {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+  background: linear-gradient(135deg, var(--text-primary), var(--primary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.welcome-text p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* KPI Cards Grid */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.kpi-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px;
+}
+
+.kpi-icon-wrapper {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Colorful KPI backgrounds */
+.kpi-blue { background-color: var(--primary-light); color: var(--primary-color); }
+.kpi-green { background-color: var(--success-light); color: var(--success-color); }
+.kpi-amber { background-color: var(--warning-light); color: var(--warning-color); }
+.kpi-red { background-color: var(--danger-light); color: var(--danger-color); }
+
+.kpi-info-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.kpi-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.kpi-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 4px;
+  font-family: var(--font-primary);
+}
+
+/* Charts Grid Row */
+.charts-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 24px;
+}
+
+@media (max-width: 992px) {
+  .charts-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chart-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.chart-title {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Chart 1: Completion circular progress */
+.completion-chart-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 10px 0;
+}
+
+.css-circle-chart {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: conic-gradient(var(--primary-color) var(--completion-deg, 0deg), var(--border-color) var(--completion-deg, 0deg) 360deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-slow);
+}
+
+.css-circle-inner {
+  width: 126px;
+  height: 126px;
+  border-radius: 50%;
+  background-color: var(--card-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  transition: background-color var(--transition-normal);
+}
+
+.completion-val {
+  font-family: var(--font-primary);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 16px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-color-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+/* Chart 2: Department Horizontal Bar Chart */
+.bar-chart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  justify-content: center;
+  height: 100%;
+}
+
+.chart-bar-row {
+  display: grid;
+  grid-template-columns: 100px 1fr 60px;
+  align-items: center;
+  gap: 16px;
+}
+
+.chart-bar-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.chart-bar-bg {
+  height: 10px;
+  background-color: var(--border-color);
+  border-radius: 5px;
+  overflow: hidden;
+  transition: background var(--transition-normal);
+}
+
+.chart-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border-radius: 5px;
+  width: 0%;
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.chart-bar-value {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: right;
+  color: var(--text-primary);
+}
+
+/* Recent Reviews Table layout */
+.table-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.table-header {
+  padding: 24px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  transition: border-color var(--transition-normal);
+}
+
+.recent-reviews-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.recent-reviews-table th {
+  background-color: var(--bg-color);
+  padding: 16px 32px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color var(--transition-normal), border-color var(--transition-normal);
+}
+
+.recent-reviews-table td {
+  padding: 16px 32px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  transition: border-color var(--transition-normal);
+}
+
+.recent-reviews-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.recent-reviews-table tbody tr {
+  transition: background-color var(--transition-fast);
+}
+
+.recent-reviews-table tbody tr:hover {
+  background-color: var(--bg-color);
+}
+
+.employee-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.employee-avatar-wrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.employee-name-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.emp-name-text {
+  font-weight: 600;
+}
+
+.emp-role-text {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.rating-star-icon {
+  color: var(--warning-color);
+  width: 14px;
+  height: 14px;
+}

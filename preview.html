@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Performance Report Preview - Employee Performance Review System</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/preview.css">
+</head>
+<body>
+
+  <!-- Screen-Only Nav Header -->
+  <header class="no-print screen-navbar">
+    <div style="display: flex; align-items: center; gap: 16px;">
+      <button class="btn btn-secondary" id="backBtn" style="padding: 8px 16px;">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        <span>Back</span>
+      </button>
+      <span class="preview-mode-tag" id="previewModeTag">Completed Review Mode</span>
+    </div>
+    
+    <div class="actions-group">
+      <button class="btn btn-secondary" id="printBtn">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+        </svg>
+        Print Report
+      </button>
+      <button class="btn btn-primary" id="downloadPdfBtn">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+        </svg>
+        Download PDF (Simulated)
+      </button>
+    </div>
+  </header>
+
+  <!-- Printable Report Document Container -->
+  <div class="report-wrapper">
+    <div class="report-container">
+      
+      <!-- Report Header -->
+      <div class="report-header">
+        <div class="report-header-left">
+          <div class="report-logo">PR</div>
+          <div>
+            <h1 class="report-company-title">Enterprise Corp</h1>
+            <p class="report-doc-title">Employee Performance Evaluation Report</p>
+          </div>
+        </div>
+        <div class="report-header-right">
+          <span class="report-badge" id="reportGradeBadge">Excellent</span>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <!-- Meta Info Grid -->
+      <div class="meta-section">
+        <div class="meta-card">
+          <h3 class="meta-title">Employee Information</h3>
+          <div class="meta-row">
+            <span class="meta-label">Name:</span>
+            <span class="meta-val" id="metaEmpName">David Vance</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">ID:</span>
+            <span class="meta-val" id="metaEmpId">EMP001</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Department:</span>
+            <span class="meta-val" id="metaEmpDept">IT</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Position:</span>
+            <span class="meta-val" id="metaEmpPosition">Lead Architect</span>
+          </div>
+        </div>
+
+        <div class="meta-card">
+          <h3 class="meta-title">Evaluation Details</h3>
+          <div class="meta-row">
+            <span class="meta-label">Review Period:</span>
+            <span class="meta-val" id="metaPeriod">Q2 2026</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Evaluating Manager:</span>
+            <span class="meta-val" id="metaManager">Vamsi Kelam</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Evaluation Date:</span>
+            <span class="meta-val" id="metaDate">July 28, 2026</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Overall Score:</span>
+            <span class="meta-val" style="font-weight: 700; color: var(--primary-color);" id="metaOverallScore">4.6 / 5.0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ratings Matrix Section -->
+      <div class="evaluation-section">
+        <h3 class="section-heading">Detailed Criteria Matrix</h3>
+        <table class="evaluation-matrix-table">
+          <thead>
+            <tr>
+              <th>Performance Criterion</th>
+              <th>Description</th>
+              <th style="text-align: center; width: 60px;">Score</th>
+              <th style="width: 150px; text-align: right;">Rating</th>
+            </tr>
+          </thead>
+          <tbody id="previewMatrixBody">
+            <!-- Injected dynamically by JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Comments Summary Block -->
+      <div class="comments-section">
+        <h3 class="section-heading">Qualitative Performance Summary</h3>
+        <div class="comments-card-block">
+          <svg class="quote-icon" fill="currentColor" viewBox="0 0 24 24" width="32" height="32">
+            <path d="M13 14.725c0-5.141 3.892-10.519 10-11.725l.944 2c-3.077 1.183-4.944 3.42-4.944 5.725h5v8h-11v-4zm-13 0c0-5.141 3.892-10.519 10-11.725l.944 2c-3.077 1.183-4.944 3.42-4.944 5.725h5v8h-11v-4z"/>
+          </svg>
+          <p class="comments-text" id="previewComments">
+            David has shown outstanding architectural leadership this quarter. His technical skills are peerless, and he solved major infrastructure bottlenecks.
+          </p>
+        </div>
+      </div>
+
+      <!-- Signatures Footer -->
+      <div class="signatures-section">
+        <div class="signature-block">
+          <div class="signature-line"></div>
+          <span class="signature-label">Evaluator Signature</span>
+          <span class="signature-name" id="sigManagerName">Vamsi Kelam</span>
+        </div>
+        <div class="signature-block">
+          <div class="signature-line"></div>
+          <span class="signature-label">Employee Signature</span>
+          <span class="signature-name" id="sigEmpName">David Vance</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast overlay -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="js/db.js"></script>
+  <script src="js/preview.js"></script>
+</body>
+</html>

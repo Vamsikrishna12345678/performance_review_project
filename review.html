@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evaluation - Employee Performance Review System</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/review.css">
+</head>
+<body>
+
+  <!-- Mobile Top Navigation Bar -->
+  <header class="mobile-navbar">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <div class="logo-icon">PR</div>
+      <h2 style="font-size: 1.1rem; font-family: var(--font-primary);">PR System</h2>
+    </div>
+    <div class="mobile-hamburger" id="mobileHamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <div class="app-container">
+
+    <!-- Collapsible Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="logo-icon">PR</div>
+        <span class="brand-name">Performance HQ</span>
+      </div>
+
+      <nav class="sidebar-menu">
+        <li class="menu-item">
+          <a href="dashboard.html">
+            <span class="menu-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2v-4zM14 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2v-4z" />
+              </svg>
+            </span>
+            <span class="menu-text">Dashboard</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="employees.html">
+            <span class="menu-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+            </span>
+            <span class="menu-text">Employees</span>
+          </a>
+        </li>
+        <li class="menu-item active">
+          <a href="employees.html">
+            <span class="menu-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </span>
+            <span class="menu-text">Reviews</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="#" onclick="showToast('Reports summary generated dynamically on Dashboard', 'success'); return false;">
+            <span class="menu-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </span>
+            <span class="menu-text">Reports</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="#" onclick="showToast('Settings configuration dashboard is read-only', 'warning'); return false;">
+            <span class="menu-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </span>
+            <span class="menu-text">Settings</span>
+          </a>
+        </li>
+      </nav>
+
+      <div class="sidebar-footer">
+        <li class="menu-item" style="list-style:none;">
+          <a href="#" onclick="handleLogout(); return false;" style="color: var(--danger-color); background-color: transparent;">
+            <span class="menu-icon" style="color: var(--danger-color);">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+              </svg>
+            </span>
+            <span class="menu-text">Logout</span>
+          </a>
+        </li>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="main-wrapper">
+      
+      <!-- Top Navbar Header -->
+      <header class="header">
+        <div class="header-left">
+          <button class="toggle-sidebar-btn" id="toggleSidebarBtn" aria-label="Toggle Sidebar">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="employees.html">Employees</a></li>
+            <li class="breadcrumb-item active">Performance Evaluation</li>
+          </ul>
+        </div>
+
+        <div class="header-right">
+          <!-- Theme Toggle -->
+          <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Theme">
+            <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+            </svg>
+            <svg class="moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+
+          <div class="notification-bell" onclick="showToast('You have no new notifications.', 'info')">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="22" height="22">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+            </svg>
+            <div class="notification-badge"></div>
+          </div>
+
+          <!-- Profile Info Trigger -->
+          <div class="profile-dropdown-container">
+            <div class="profile-trigger" id="profileTrigger">
+              <div class="profile-avatar">VK</div>
+              <div class="profile-info">
+                <span class="profile-name">Vamsi Kelam</span>
+                <span class="profile-role">Manager</span>
+              </div>
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16" style="color: var(--text-secondary);">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+            
+            <div class="profile-dropdown" id="profileDropdown">
+              <div class="dropdown-header">
+                <div class="dropdown-header-name">Vamsi Kelam</div>
+                <div class="dropdown-header-email">vamsi.manager@enterprise.com</div>
+              </div>
+              <a href="#" class="dropdown-item" onclick="showToast('Profile editing is read-only', 'warning'); return false;">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                My Profile
+              </a>
+              <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 8px 0;">
+              <a href="#" class="dropdown-item logout-item" onclick="handleLogout(); return false;">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
+                Log Out
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Evaluation Form Content -->
+      <main class="content-body">
+        
+        <div class="form-header">
+          <h1>Employee Performance Evaluation</h1>
+          <p>Fill out the standardized evaluation form across the 10 core performance metrics.</p>
+        </div>
+
+        <form id="evaluationForm" onsubmit="return false;">
+          <!-- 1. Employee Info Selection Block -->
+          <div class="card info-card">
+            <h3 class="section-title">Employee & Evaluation Context</h3>
+            
+            <!-- Employee Dropdown for Fallback if direct ID was not loaded -->
+            <div class="form-grid-3" id="employeeSelectWrapper" style="display: none; margin-bottom: 24px;">
+              <div class="form-field-group" style="grid-column: span 3;">
+                <label for="employeeDropdown" class="field-label">Select Employee to Evaluate</label>
+                <select id="employeeDropdown" class="form-input select-field">
+                  <!-- Injected via JS -->
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid-3">
+              <div class="form-field-group">
+                <label for="empName" class="field-label">Employee Name</label>
+                <input type="text" id="empName" class="form-input text-muted-input" readonly>
+              </div>
+              <div class="form-field-group">
+                <label for="empId" class="field-label">Employee ID</label>
+                <input type="text" id="empId" class="form-input text-muted-input" readonly>
+              </div>
+              <div class="form-field-group">
+                <label for="empDept" class="field-label">Department</label>
+                <input type="text" id="empDept" class="form-input text-muted-input" readonly>
+              </div>
+            </div>
+
+            <div class="form-grid-3" style="margin-top: 18px;">
+              <div class="form-field-group">
+                <label for="empPosition" class="field-label">Position</label>
+                <input type="text" id="empPosition" class="form-input text-muted-input" readonly>
+              </div>
+              <div class="form-field-group">
+                <label for="reviewPeriod" class="field-label">Review Period</label>
+                <select id="reviewPeriod" class="form-input select-field">
+                  <option value="Q1 2026">Q1 2026</option>
+                  <option value="Q2 2026" selected>Q2 2026</option>
+                  <option value="Q3 2026">Q3 2026</option>
+                  <option value="Q4 2026">Q4 2026</option>
+                  <option value="Annual 2026">Annual 2026</option>
+                </select>
+              </div>
+              <div class="form-field-group">
+                <label for="managerName" class="field-label">Evaluating Manager</label>
+                <input type="text" id="managerName" class="form-input text-muted-input" value="Vamsi Kelam" readonly>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Interactive Star Metrics & Scores Panel -->
+          <div class="evaluation-layout">
+            <div class="card metrics-card">
+              <h3 class="section-title">Evaluation Criteria</h3>
+              
+              <!-- Metrics list container -->
+              <div class="metrics-list" id="metricsList">
+                <!-- Injected Dynamically by JS (10 items) -->
+              </div>
+            </div>
+
+            <!-- Score Summary Sticky Widget -->
+            <div class="score-sticky-container">
+              <div class="card score-widget">
+                <h3 class="widget-title">Evaluation Summary</h3>
+                
+                <div class="score-circle-wrapper">
+                  <div class="score-display">
+                    <span class="score-number" id="liveScoreText">0.0</span>
+                    <span class="score-max">/ 5.0</span>
+                  </div>
+                </div>
+                
+                <div class="grade-badge-wrapper">
+                  <span class="grade-badge" id="liveGradeBadge">Pending Evaluation</span>
+                </div>
+                
+                <div class="criteria-progress-list" id="criteriaMiniProgress">
+                  <!-- Small criteria bars representing completed scores -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Comments Box Card -->
+          <div class="card comments-card">
+            <h3 class="section-title">Manager Comments & Feedback</h3>
+            <div class="form-field-group" style="margin-top: 12px;">
+              <label for="comments" class="field-label">Detailed Comments (Required - between 20 and 500 characters)</label>
+              <textarea id="comments" rows="6" class="form-textarea" placeholder="Provide qualitative feedback, detailing strengths, weaknesses, and specific areas for development..."></textarea>
+              <div class="textarea-footer">
+                <span class="character-error" id="commentErrorMsg">Requires at least 20 characters</span>
+                <span class="character-count" id="commentCharCount">0 / 500 characters</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Form Action Buttons -->
+          <div class="form-actions-bar">
+            <div class="actions-left">
+              <button type="button" class="btn btn-secondary" id="resetBtn">Reset Fields</button>
+            </div>
+            <div class="actions-right">
+              <button type="button" class="btn btn-secondary" id="previewBtn">Preview Report</button>
+              <button type="submit" class="btn btn-primary" id="submitBtn">Submit Review</button>
+            </div>
+          </div>
+
+        </form>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Success Modal for Submissions -->
+  <div class="success-overlay" id="successOverlay">
+    <div class="success-checkmark-wrapper">
+      <div class="success-circle"></div>
+      <div class="success-check"></div>
+    </div>
+    <h2 class="success-title">Review Submitted Successfully!</h2>
+    <p class="success-desc" id="successDesc">The performance review report for David Vance has been finalized and recorded in the management database.</p>
+    <a href="dashboard.html" class="btn btn-primary">Go to Dashboard</a>
+  </div>
+
+  <script src="js/db.js"></script>
+  <script src="js/review.js"></script>
+</body>
+</html>

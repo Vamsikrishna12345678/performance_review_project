@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Employee Performance Review System</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background: radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.08) 0%, transparent 40%),
+                  radial-gradient(circle at 90% 80%, rgba(30, 64, 175, 0.08) 0%, transparent 45%),
+                  var(--bg-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .login-container {
+      width: 100%;
+      max-width: 440px;
+      animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.07),
+                  0 0 50px rgba(37, 99, 235, 0.05);
+      padding: 40px;
+      transition: background var(--transition-normal), border var(--transition-normal);
+    }
+
+    [data-theme="dark"] .glass-card {
+      background: rgba(30, 41, 59, 0.7);
+      border-color: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+    }
+
+    .login-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .login-logo {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      border-radius: var(--radius-md);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.4rem;
+      font-family: var(--font-primary);
+      margin-bottom: 16px;
+      box-shadow: 0 8px 16px rgba(37, 99, 235, 0.2);
+    }
+
+    .login-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .login-subtitle {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--input-border);
+      background-color: var(--input-bg);
+      font-size: 0.95rem;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .input-field:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+
+    .label-floating {
+      position: absolute;
+      left: 16px;
+      top: 14px;
+      color: var(--text-secondary);
+      pointer-events: none;
+      transition: all var(--transition-fast);
+      transform-origin: left top;
+    }
+
+    .input-field:focus ~ .label-floating,
+    .input-field:not(:placeholder-shown) ~ .label-floating {
+      transform: translateY(-24px) scale(0.85);
+      color: var(--primary-color);
+      left: 8px;
+      font-weight: 600;
+    }
+
+    /* Option utilities */
+    .login-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .checkbox-label input {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--primary-color);
+      border-radius: 4px;
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 14px;
+      font-size: 1rem;
+      border-radius: var(--radius-md);
+    }
+
+    .theme-switch-wrapper {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Theme Toggle Button -->
+  <div class="theme-switch-wrapper">
+    <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Theme">
+      <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+      </svg>
+      <svg class="moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+      </svg>
+    </button>
+  </div>
+
+  <div class="login-container">
+    <div class="glass-card">
+      <div class="login-header">
+        <div class="login-logo">
+          PR
+        </div>
+        <h1 class="login-title">Performance Review</h1>
+        <p class="login-subtitle">Employee Evaluation System</p>
+      </div>
+
+      <form id="loginForm" autocomplete="off" onsubmit="return false;">
+        <!-- Username -->
+        <div class="form-group">
+          <input type="text" id="username" class="input-field" placeholder=" " required>
+          <label for="username" class="label-floating">Username</label>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <input type="password" id="password" class="input-field" placeholder=" " required>
+          <label for="password" class="label-floating">Password</label>
+        </div>
+
+        <!-- Options: Remember Me & Show Password -->
+        <div class="login-options">
+          <label class="checkbox-label">
+            <input type="checkbox" id="rememberMe">
+            <span>Remember Me</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="showPassword">
+            <span>Show Password</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-login" id="loginBtn">
+          <span>Log In</span>
+        </button>
+
+        <div style="text-align: center; margin-top: 20px;">
+          <a href="#" id="forgotPasswordLink" style="font-size: 0.85rem;">Forgot Password?</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Shared Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Shared Loading Spinner Overlay -->
+  <div class="spinner-overlay" id="loadingSpinner">
+    <div class="spinner"></div>
+  </div>
+
+  <script src="js/login.js"></script>
+</body>
+</html>

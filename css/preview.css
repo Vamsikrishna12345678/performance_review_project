@@ -1,0 +1,326 @@
+/* --- Report Print Preview Specific Styles --- */
+
+/* Page background for screen mode */
+body {
+  background-color: #475569 !important; /* Steel slate color */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+[data-theme="dark"] body {
+  background-color: #0F172A !important;
+}
+
+/* Screen Navbar Header */
+.screen-navbar {
+  height: var(--header-height);
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-md);
+  width: 100%;
+}
+
+.preview-mode-tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background-color: var(--success-light);
+  color: var(--success-color);
+}
+
+.preview-mode-tag.draft {
+  background-color: var(--warning-light);
+  color: var(--warning-color);
+}
+
+.actions-group {
+  display: flex;
+  gap: 12px;
+}
+
+/* Page wrapper to look like a physical sheet of paper */
+.report-wrapper {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.report-container {
+  width: 800px;
+  background-color: #FFFFFF;
+  color: #1E293B; /* Standard dark print text */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border-radius: var(--radius-md);
+  padding: 48px;
+  min-height: 1000px;
+  display: flex;
+  flex-direction: column;
+  transition: background-color var(--transition-normal);
+}
+
+/* Standard logo & title header */
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.report-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.report-logo {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+.report-company-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.report-doc-title {
+  font-size: 0.95rem;
+  color: #475569;
+  font-weight: 500;
+}
+
+.report-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1.5px solid #22C55E;
+  color: #22C55E;
+  background-color: rgba(34, 197, 94, 0.05);
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid #E2E8F0;
+  margin: 28px 0;
+}
+
+/* Meta Information cards */
+.meta-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 32px;
+}
+
+.meta-card {
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.meta-title {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #475569;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+  border-bottom: 1.5px solid #CBD5E1;
+  padding-bottom: 6px;
+}
+
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+.meta-row:last-child {
+  margin-bottom: 0;
+}
+
+.meta-label {
+  color: #64748B;
+  font-weight: 500;
+}
+
+.meta-val {
+  color: #0F172A;
+  font-weight: 600;
+}
+
+/* Evaluations list matrix table */
+.evaluation-section {
+  margin-bottom: 32px;
+}
+
+.section-heading {
+  font-size: 1rem;
+  color: #0F172A;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.evaluation-matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.evaluation-matrix-table th {
+  background-color: #F1F5F9;
+  padding: 10px 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #475569;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.evaluation-matrix-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #E2E8F0;
+  font-size: 0.8rem;
+  color: #334155;
+  vertical-align: middle;
+}
+
+.preview-stars {
+  color: var(--warning-color);
+  font-size: 1.1rem;
+}
+
+/* Quote Comments box */
+.comments-section {
+  margin-bottom: 40px;
+}
+
+.comments-card-block {
+  background-color: #F8FAFC;
+  border-left: 4px solid var(--primary-color);
+  border-radius: 0 8px 8px 0;
+  padding: 24px;
+  position: relative;
+}
+
+.quote-icon {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  color: #E2E8F0;
+  pointer-events: none;
+}
+
+.comments-text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #334155;
+  font-style: italic;
+  position: relative;
+  z-index: 2;
+}
+
+/* Signature footer block */
+.signatures-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto; /* Push signature block to bottom of page container */
+  padding-top: 48px;
+}
+
+.signature-block {
+  width: 250px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.signature-line {
+  border-top: 1.5px solid #94A3B8;
+  margin-bottom: 8px;
+}
+
+.signature-label {
+  font-size: 0.75rem;
+  color: #64748B;
+  text-transform: uppercase;
+}
+
+.signature-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0F172A;
+  margin-top: 4px;
+}
+
+/* --- Printer Overrides --- */
+@media print {
+  body {
+    background-color: #FFFFFF !important;
+    background: none !important;
+    color: #000000 !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  .report-wrapper {
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+  
+  .report-container {
+    width: 100% !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    min-height: auto !important;
+    background-color: #FFFFFF !important;
+  }
+
+  .meta-card {
+    background-color: #F8FAFC !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .evaluation-matrix-table th {
+    background-color: #F1F5F9 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .comments-card-block {
+    background-color: #F8FAFC !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
